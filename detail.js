@@ -9,11 +9,14 @@
 
 const queryParams = new URLSearchParams(window.location.search);
 
-console.log(queryParams);
+//window.location.search restituisce la parte della stringa dell'URL che rappresenta i parametri di query, inclusa la parte ? iniziale. 
+//Ad esempio, se l'URL completo è https://www.example.com/page?id=123&name=John, window.location.search restituirà ?id=123&name=John.
 
-const id = queryParams.get('id');
+// console.log(queryParams);
 
-if(id){
+const id = queryParams.get('id'); //Questa riga utilizza il metodo .get() dell'oggetto queryParams per ottenere il valore del parametro di query chiamato 'id'.
+
+if(id){  //Se il parametro 'id' è presente nell'URL, la variabile id conterrà il suo valore corrispondente.
     DBService.getSingleBrewery(id).then(brewery => render(brewery));
 }
 
